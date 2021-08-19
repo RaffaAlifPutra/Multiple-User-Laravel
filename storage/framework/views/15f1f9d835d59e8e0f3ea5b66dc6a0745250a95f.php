@@ -1,0 +1,42 @@
+<?php $__env->startSection('content'); ?>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header"><?php echo e(__('Dashboard')); ?></div>
+
+                <div class="card-body">
+                    <?php if(session('status')): ?>
+                        <div class="alert alert-success" role="alert">
+                            <?php echo e(session('status')); ?>
+
+                        </div>
+                    <?php endif; ?>
+
+<?php echo e('Level User Anda: '); ?>
+
+
+                    <?php if(Auth::check()): ?>
+        <?php if(Auth::user()->role == 'admin'): ?>
+                     <?php echo e('admin'); ?>
+
+                     <?php endif; ?>
+        <?php if(Auth::user()->role == 'hubin'): ?>
+                     <?php echo e('hubin'); ?>
+
+                     <?php endif; ?>
+        <?php if(Auth::user()->role == 'siswa'): ?>
+                     <?php echo e('siswa'); ?>
+
+                     <?php endif; ?>
+                     <?php endif; ?>
+                     <?php echo e(__('You are logged in!')); ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\xampp7.3.7\htdocs\latihan_multiple_user\resources\views/home.blade.php ENDPATH**/ ?>
